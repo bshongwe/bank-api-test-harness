@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  wiremock:
+    image: wiremock/wiremock:latest
+    container_name: wiremock-banks
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./mocks:/home/wiremock
+    restart: unless-stopped
