@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/v1/accounts/987/balance"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Request-Id": "absa-req-001"
+    },
+    "jsonBody": {
+      "accountId": "987",
+      "currency": "ZAR",
+      "availableBalance": 60000.00,
+      "ledgerBalance": 60500.00,
+      "bank": "Absa Bank"
+    }
+  }
+}
