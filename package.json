@@ -7,8 +7,8 @@
     "test": "k6 run tests/performance/payment-flow.test.js",
     "test:audit": "k6 run tests/performance/audit-log.test.js",
     "test:retry": "k6 run tests/performance/retry-backoff.test.js",
-    "mock:start": "docker-compose up -d",
-    "mock:stop": "docker-compose down"
+    "mock:start": "docker compose up -d",
+    "mock:stop": "docker compose down"
   },
   "keywords": ["banking", "testing", "k6", "wiremock", "payments"],
   "author": "Ernest B. Shongwe",
