@@ -1,0 +1,16 @@
+{
+  "name": "bank-api-test-harness",
+  "version": "1.0.0",
+  "description": "Test harness for regulated banking API integrations",
+  "type": "module",
+  "scripts": {
+    "test": "k6 run tests/performance/payment-flow.test.js",
+    "test:audit": "k6 run tests/performance/audit-log.test.js",
+    "test:retry": "k6 run tests/performance/retry-backoff.test.js",
+    "mock:start": "docker-compose up -d",
+    "mock:stop": "docker-compose down"
+  },
+  "keywords": ["banking", "testing", "k6", "wiremock", "payments"],
+  "author": "Ernest B. Shongwe",
+  "license": "MIT"
+}
