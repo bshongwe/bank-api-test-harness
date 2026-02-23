@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/v1/unavailable"
+  },
+  "response": {
+    "status": 503,
+    "jsonBody": {
+      "error": "SERVICE_TEMPORARILY_UNAVAILABLE"
+    }
+  }
+}
