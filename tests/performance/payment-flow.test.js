@@ -1,5 +1,9 @@
 import http from "k6/http";
-import { check, sleep, randomIntBetween } from "k6";
+import { check, sleep } from "k6";
+
+function randomIntBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 export const options = {
   vus: 1,
