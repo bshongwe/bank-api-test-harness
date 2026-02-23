@@ -1,5 +1,8 @@
 # Bank API Test Harness
 
+[![CI](https://github.com/bshongwe/bank-api-test-harness/actions/workflows/bank-api-tests.yml/badge.svg)](https://github.com/bshongwe/bank-api-test-harness/actions/workflows/bank-api-tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ![Bank API Test Harness](public/bank-api-test-harness-01.png)
 
 ## Why This Project Exists
@@ -52,3 +55,50 @@ k6 run -e API_URL=https://staging.example.com tests/performance/payment-flow.tes
 ### CI/CD
 
 GitHub Actions automatically runs all tests on push and pull requests. See [.github/workflows/bank-api-tests.yml](.github/workflows/bank-api-tests.yml) for details.
+
+## Troubleshooting
+
+### WireMock won't start
+```bash
+# Check if port 8080 is already in use
+lsof -i :8080
+
+# Stop any existing containers
+docker compose down
+
+# View logs
+docker compose logs wiremock
+```
+
+### Tests failing
+```bash
+# Verify WireMock is running
+curl http://localhost:8080/__admin/health
+
+# Check mock mappings are loaded
+curl http://localhost:8080/__admin/mappings
+
+# Run tests with verbose output
+k6 run --verbose tests/performance/payment-flow.test.js
+```
+
+### k6 not found
+```bash
+# Install k6 (macOS)
+brew install k6
+
+# Install k6 (Linux)
+sudo gpg -k
+sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+sudo apt-get update
+sudo apt-get install k6
+```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding new banks, test scenarios, and customizing mocks.
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
