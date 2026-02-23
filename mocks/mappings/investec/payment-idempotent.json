@@ -9,7 +9,7 @@
     }
   },
   "response": {
-    "status": 200,
+    "status": 201,
     "jsonBody": {
       "paymentId": "investec-pay-789",
       "status": "PENDING",
