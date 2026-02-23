@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/v1/payments"
+  },
+  "response": {
+    "status": 201,
+    "jsonBody": {
+      "payment_id": "pay-{{randomValue type='UUID'}}",
+      "status": "PENDING"
+    },
+    "transformers": ["response-template"]
+  }
+}
