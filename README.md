@@ -15,3 +15,34 @@ integrations are tested responsibly using:
 
 This mirrors real-world expectations of South African
 and international banking partners.
+
+## Quick Start
+
+### Prerequisites
+- Docker & Docker Compose
+- [k6](https://k6.io/docs/get-started/installation/) (load testing tool)
+
+### Setup
+
+```bash
+# Start WireMock with bank mocks
+npm run mock:start
+
+# Run payment flow tests
+npm test
+
+# Run specific tests
+npm run test:audit
+npm run test:retry
+
+# Stop mocks
+npm run mock:stop
+```
+
+### Environment Configuration
+
+Tests support environment-based URLs:
+
+```bash
+k6 run -e API_URL=https://staging.example.com tests/performance/payment-flow.test.js
+```
