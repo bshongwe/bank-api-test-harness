@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/v1/payments",
+    "headers": {
+      "Idempotency-Key": {
+        "equalTo": "investec-abc-123"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "paymentId": "investec-pay-789",
+      "status": "PENDING",
+      "idempotent": true,
+      "bank": "Investec"
+    }
+  }
+}
