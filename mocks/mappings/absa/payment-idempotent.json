@@ -12,7 +12,7 @@
     "status": 201,
     "jsonBody": {
       "payment_id": "absa-pay-789",
-      "status": "PENDING",
+      "status": "PENDING"
     }
   }
 }

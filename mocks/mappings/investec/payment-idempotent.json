@@ -12,7 +12,7 @@
     "status": 201,
     "jsonBody": {
       "payment_id": "investec-pay-789",
-      "status": "PENDING",
+      "status": "PENDING"
     }
   }
 }
