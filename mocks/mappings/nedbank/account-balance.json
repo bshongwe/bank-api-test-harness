@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/v1/accounts/789/balance"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Request-Id": "nedbank-req-001"
+    },
+    "jsonBody": {
+      "accountId": "789",
+      "currency": "ZAR",
+      "availableBalance": 30000.00,
+      "ledgerBalance": 30500.00,
+      "bank": "Nedbank"
+    }
+  }
+}
