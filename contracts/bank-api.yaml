@@ -2,6 +2,7 @@ openapi: 3.0.0
 info:
   title: Bank API Test Harness
   version: 1.0.0
+  description: Mock banking API for testing payment integrations
 servers:
   - url: http://localhost:8080
     description: Local test environment
@@ -12,20 +13,68 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
+    PaymentStatus:
+      type: string
+      enum: [PENDING, PROCESSING, COMPLETED, FAILED, CANCELLED]
+    PaymentRequest:
+      type: object
+      required: [amount, beneficiary_account, currency, payment_reference]
+      properties:
+        amount:
+          type: number
+          minimum: 0.01
+          multipleOf: 0.01
+          example: 1500.00
+        beneficiary_account:
+          type: string
+          minLength: 8
+          maxLength: 34
+          example: "ACC-12345678"
+        currency:
+          type: string
+          enum: [ZAR, USD, EUR, GBP]
+          example: "ZAR"
+        payment_reference:
+          type: string
+          minLength: 1
+          maxLength: 35
+          example: "REF-2024-001"
+        description:
+          type: string
+          example: "Payment for invoice #12345"
     PaymentResponse:
       type: object
+      required: [payment_id, status]
       properties:
         payment_id:
           type: string
+          example: "pay-abc-123"
         status:
+          $ref: '#/components/schemas/PaymentStatus'
+    AccountBalance:
+      type: object
+      required: [account_id, balance, currency]
+      properties:
+        account_id:
           type: string
+          example: "ACC-12345678"
+        balance:
+          type: number
+          example: 25000.50
+        currency:
+          type: string
+          enum: [ZAR, USD, EUR, GBP]
+          example: "ZAR"
     ErrorResponse:
       type: object
+      required: [error, message]
       properties:
         error:
           type: string
+          example: "VALIDATION_ERROR"
         message:
           type: string
+          example: "Invalid payment amount"
 security:
   - BearerAuth: []
 paths:
@@ -33,6 +82,7 @@ paths:
     post:
       operationId: initiatePayment
       summary: Initiate payment
+      description: Create a new payment transaction
       tags:
         - Payments
       requestBody:
@@ -40,26 +90,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              required: [amount, beneficiary_account, currency, payment_reference]
-              properties:
-                amount:
-                  type: number
-                  minimum: 0.01
-                  multipleOf: 0.01
-                beneficiary_account:
-                  type: string
-                  minLength: 8
-                  maxLength: 34
-                currency:
-                  type: string
-                  enum: [ZAR, USD, EUR, GBP]
-                payment_reference:
-                  type: string
-                  minLength: 1
-                  maxLength: 35
-                description:
-                  type: string
+              $ref: '#/components/schemas/PaymentRequest'
       responses:
         "201":
           description: Payment initiated
@@ -87,6 +118,60 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
         "500":
           description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/payments/{paymentId}:
+    get:
+      operationId: getPayment
+      summary: Get payment status
+      description: Retrieve payment details by ID
+      tags:
+        - Payments
+      parameters:
+        - name: paymentId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "pay-abc-123"
+      responses:
+        "200":
+          description: Payment details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentResponse'
+        "404":
+          description: Payment not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/v1/accounts/{accountId}/balance:
+    get:
+      operationId: getAccountBalance
+      summary: Get account balance
+      description: Retrieve current account balance
+      tags:
+        - Accounts
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "ACC-12345678"
+      responses:
+        "200":
+          description: Account balance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountBalance'
+        "404":
+          description: Account not found
           content:
             application/json:
               schema:

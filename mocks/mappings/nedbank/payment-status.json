@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPattern": "/api/v1/payments/.*"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "payment_id": "{{request.path.[3]}}",
+      "status": "COMPLETED"
+    },
+    "transformers": ["response-template"]
+  }
+}
