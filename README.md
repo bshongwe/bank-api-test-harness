@@ -19,7 +19,7 @@ and international banking partners.
 ## Quick Start
 
 ### Prerequisites
-- Docker & Docker Compose
+- Docker & Docker Compose v2
 - [k6](https://k6.io/docs/get-started/installation/) (load testing tool)
 
 ### Setup
@@ -46,3 +46,7 @@ Tests support environment-based URLs:
 ```bash
 k6 run -e API_URL=https://staging.example.com tests/performance/payment-flow.test.js
 ```
+
+### CI/CD
+
+GitHub Actions automatically runs all tests on push and pull requests. See [.github/workflows/bank-api-tests.yml](.github/workflows/bank-api-tests.yml) for details.
