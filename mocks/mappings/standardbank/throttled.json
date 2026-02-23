@@ -1,0 +1,16 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/v1/throttle"
+  },
+  "response": {
+    "status": 429,
+    "headers": {
+      "Retry-After": "5"
+    },
+    "jsonBody": {
+      "error": "RATE_LIMIT_EXCEEDED",
+      "bank": "Standard Bank"
+    }
+  }
+}

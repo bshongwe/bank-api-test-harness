@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/v1/accounts/456/balance"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Request-Id": "standardbank-req-001"
+    },
+    "jsonBody": {
+      "accountId": "456",
+      "currency": "ZAR",
+      "availableBalance": 20000.00,
+      "ledgerBalance": 21000.00,
+      "bank": "Standard Bank"
+    }
+  }
+}
