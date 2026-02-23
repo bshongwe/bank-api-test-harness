@@ -7,7 +7,10 @@ function randomIntBetween(min, max) {
 
 export const options = {
   vus: 1,
-  duration: "30s"
+  duration: "30s",
+  thresholds: {
+    http_req_failed: ['rate<0.01'],
+  },
 };
 
 const PAYMENTS_API_URL = __ENV.API_URL || "http://localhost:8080/api/v1/payments";

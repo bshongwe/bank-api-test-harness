@@ -102,3 +102,21 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding new banks, test 
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
+
+## Responsible Use
+
+⚠️ **IMPORTANT**: This tool is designed for testing against **mock APIs only**.
+
+### Prohibited Uses:
+- ❌ Testing against production banking APIs without explicit authorization
+- ❌ Load testing third-party services without permission
+- ❌ Attempting to bypass security controls
+- ❌ Using real customer data or credentials
+
+### Permitted Uses:
+- ✅ Local development and testing
+- ✅ CI/CD pipeline integration testing
+- ✅ Learning banking API integration patterns
+- ✅ Internal staging/test environment validation
+
+**By using this tool, you agree to test only against authorized mock or test environments.**
