@@ -1,7 +1,7 @@
 import http from "k6/http";
 import { sleep, check } from "k6";
 
-export default function () {
+export default function retryBackoffTest() {
   let retries = 0;
   let delay = 1;
 
