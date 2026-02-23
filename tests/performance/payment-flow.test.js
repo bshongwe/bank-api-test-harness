@@ -18,7 +18,7 @@ const PAYMENTS_API_URL = __ENV.API_URL || "http://localhost:8080/api/v1/payments
 export default function testPaymentFlow() {
   const paymentData = {
     amount: randomIntBetween(100, 5000),
-    beneficiary: `Vendor-${randomIntBetween(1, 999)}`,
+    beneficiary_account: `ACC-${randomIntBetween(10000000, 99999999)}`,
     currency: "ZAR",
     payment_reference: `REF-${Date.now()}-${__VU}-${__ITER}`
   };

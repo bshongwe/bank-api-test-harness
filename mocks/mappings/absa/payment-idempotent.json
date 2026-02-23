@@ -11,10 +11,8 @@
   "response": {
     "status": 201,
     "jsonBody": {
-      "paymentId": "absa-pay-789",
+      "payment_id": "absa-pay-789",
       "status": "PENDING",
-      "idempotent": true,
-      "bank": "Absa Bank"
     }
   }
 }

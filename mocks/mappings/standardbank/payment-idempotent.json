@@ -11,10 +11,8 @@
   "response": {
     "status": 201,
     "jsonBody": {
-      "paymentId": "standardbank-pay-789",
+      "payment_id": "standardbank-pay-789",
       "status": "PENDING",
-      "idempotent": true,
-      "bank": "Standard Bank"
     }
   }
 }

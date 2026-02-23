@@ -11,10 +11,8 @@
   "response": {
     "status": 201,
     "jsonBody": {
-      "paymentId": "investec-pay-789",
+      "payment_id": "investec-pay-789",
       "status": "PENDING",
-      "idempotent": true,
-      "bank": "Investec"
     }
   }
 }

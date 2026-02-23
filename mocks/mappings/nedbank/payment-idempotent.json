@@ -11,10 +11,8 @@
   "response": {
     "status": 201,
     "jsonBody": {
-      "paymentId": "nedbank-pay-789",
-      "status": "PENDING",
-      "idempotent": true,
-      "bank": "Nedbank"
+      "payment_id": "nedbank-pay-789",
+      "status": "PENDING"
     }
   }
 }
