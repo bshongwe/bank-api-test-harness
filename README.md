@@ -1,6 +1,6 @@
 # Bank API Test Harness
 
-![Bank API Test Harness](public/bank-api-test-harness.png)
+![Bank API Test Harness](public/bank-api-test-harness-01.png)
 
 ## Why This Project Exists
 
@@ -40,6 +40,8 @@ npm run mock:stop
 ```
 
 ### Environment Configuration
+
+![Bank API Test Harness](public/bank-api-test-harness.png)
 
 Tests support environment-based URLs:
 
