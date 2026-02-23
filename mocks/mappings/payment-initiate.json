@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/v1/payments"
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Request-Id": "{{randomValue length=12 type='ALPHANUMERIC'}}"
+    },
+    "jsonBody": {
+      "paymentId": "pay-789",
+      "status": "PENDING",
+      "amount": 1500.00,
+      "currency": "ZAR"
+    }
+  }
+}
