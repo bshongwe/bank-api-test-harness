@@ -1,0 +1,15 @@
+  /api/v1/payments:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [amount]
+              properties:
+                amount:
+                  type: number
+      responses:
+        "201":
+          description: Payment initiated
