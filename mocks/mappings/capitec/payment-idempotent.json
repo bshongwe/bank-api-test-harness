@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/v1/payments",
+    "headers": {
+      "Idempotency-Key": {
+        "equalTo": "capitec-abc-123"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "paymentId": "capitec-pay-789",
+      "status": "PENDING",
+      "idempotent": true,
+      "bank": "Capitec"
+    }
+  }
+}
