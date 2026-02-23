@@ -4,6 +4,7 @@ services:
   wiremock:
     image: wiremock/wiremock:3.3.1
     container_name: wiremock-banks
+    command: ["--global-response-templating"]
     ports:
       - "8080:8080"
     volumes:
