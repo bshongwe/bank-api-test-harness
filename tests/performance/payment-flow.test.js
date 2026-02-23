@@ -1,6 +1,5 @@
 import http from "k6/http";
-import { check, sleep } from "k6";
-import { randomIntBetween } from "k6";
+import { check, sleep, randomIntBetween } from "k6";
 
 export const options = {
   vus: 1,
