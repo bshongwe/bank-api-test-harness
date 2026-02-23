@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/v1/accounts/321/balance"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Request-Id": "tymebank-req-001"
+    },
+    "jsonBody": {
+      "accountId": "321",
+      "currency": "ZAR",
+      "availableBalance": 40000.00,
+      "ledgerBalance": 40500.00,
+      "bank": "Tyme Bank"
+    }
+  }
+}
